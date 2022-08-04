@@ -6,8 +6,10 @@ A new Flutter project.
 ##Features:
   
   Welcome Page    				            -DONE
---Login/Signup					              -DONE
---Home Page					                  -DONE
+  
+  Login/Signup					              -DONE
+  
+  Home Page					                  -DONE
 --Search user					                -DONE
 --Camera/Gallery(photos)			        -DONE
 --Profile page					              -DONE
