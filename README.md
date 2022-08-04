@@ -10,20 +10,34 @@ A new Flutter project.
   Login/Signup					              -DONE
   
   Home Page					                  -DONE
---Search user					                -DONE
---Camera/Gallery(photos)			        -DONE
---Profile page					              -DONE
---Dark mode/light mode			          -DONE
---Share photos					              -DONE
---Likes functionality with count		  -DONE
---Comment functionality with count	  -DONE
---Followers/Following/posts count	    -DONE
---User can follow/unfollow			      -DONE
---Firebase database for storing data	-DONE
---Firebase storage for storing posts	-DONE
---Authentication for users emails		  -DONE
---Edit Profile 					              -HALF DONE
---Chat 	with user 					          -NOT STARTED
+  
+  Search user					                -DONE
+  
+  Camera/Gallery(photos)			        -DONE
+  
+  Profile page					              -DONE
+  
+  Dark mode/light mode			          -DONE
+  
+  Share photos					              -DONE
+  
+  Likes functionality with count		  -DONE
+  
+  Comment functionality with count	  -DONE
+  
+  Followers/Following/posts count	    -DONE
+  
+  User can follow/unfollow			      -DONE
+  
+  Firebase database for storing data	-DONE
+  
+  Firebase storage for storing posts	-DONE
+  
+  Authentication for users emails		  -DONE
+  
+  Edit Profile 					              -HALF DONE
+  
+  Chat 	with user 					          -NOT STARTED
 
 
 A few resources used for project are as follows:
