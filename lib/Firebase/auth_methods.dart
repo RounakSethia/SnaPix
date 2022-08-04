@@ -27,7 +27,7 @@ class AuthMethods {
     required String bio,
     required Uint8List file,
   }) async {
-    String res = "Some error Occurred";
+    String result = "Some error Occurred";
     try {
       if (email.isNotEmpty ||
           password.isNotEmpty ||
@@ -59,14 +59,14 @@ class AuthMethods {
             .doc(cred.user!.uid)
             .set(_user.toJson());
 
-        res = "success";
+        result = "success";
       } else {
-        res = "Please enter all the fields";
+        result = "Please enter all the fields";
       }
     } catch (err) {
       return err.toString();
     }
-    return res;
+    return result;
   }
 
   // logging in user

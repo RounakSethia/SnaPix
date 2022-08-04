@@ -6,7 +6,9 @@ import 'package:pixapp/Firebase/auth_methods.dart';
 import 'package:pixapp/Pages/login.dart';
 import 'package:pixapp/Pages/home.dart';
 
-class SignupPage extends StatefulWidget {
+
+//All the fields are required for this so please add photo and other details
+  class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
 
   @override
@@ -30,13 +32,13 @@ class _SignupPageState extends State<SignupPage> {
   }
 
   void signUpUser() async {
-    String res = await AuthMethods().signUpUser(
+    String result = await AuthMethods().signUpUser(
         email: _emailController.text,
         password: _passwordController.text,
         username: _usernameController.text,
         bio: _bioController.text,
         file: _image!);
-    if (res == "success") {
+    if (result == "success") {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => const InputScreen(
@@ -45,20 +47,21 @@ class _SignupPageState extends State<SignupPage> {
         ),
       );
     } else {
-      showSnackBar(context, res);
+      showSnackBar(context, result,);
+      
     }
   }
 
   pickImage(ImageSource source) async {
-    final ImagePicker _imagePicker = ImagePicker();
-    XFile? _file = await _imagePicker.pickImage(source: source);
-    if (_file != null) {
-      return await _file.readAsBytes();
-    }
-    print('You didn\'t select the image');
+  final ImagePicker imagePicker = ImagePicker();
+  XFile? _file = await imagePicker.pickImage(source: source);
+  if (_file != null) {
+    return await _file.readAsBytes();
   }
+  print('No Image Selected');
+}
 
-  showSnackBar(BuildContext context, String text) {
+  showSnackBar(BuildContext context, String text,) {
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(text),

@@ -7,9 +7,13 @@ import 'package:pixapp/Pages/snapix.dart';
 import 'package:pixapp/Pages/profile.dart';
 import 'package:pixapp/Pages/search.dart';
 import 'package:pixapp/widgets/custom_icon_widgets.dart';
+import 'package:pixapp/widgets/theme_widgets.dart';
 
+//Home Page that shows post from different users
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -17,7 +21,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int pageIdx = 0;
-  late PageController pageController; // for tabs animation
+  late PageController pageController;
 
   @override
   void initState() {
@@ -32,7 +36,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   void navigationTapped(int page) {
-    //Animating Page
     pageController.jumpToPage(page);
   }
 
@@ -46,7 +49,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        automaticallyImplyLeading: false,
+        backgroundColor: themeColors(),
+        elevation: 0,
+        brightness: themesSwitch ? Brightness.dark : Brightness.light,
         centerTitle: false,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -56,35 +62,41 @@ class _HomePageState extends State<HomePage> {
               fit: BoxFit.contain,
               height: 60,
             ),
-            Text('Snapix',
-                style: GoogleFonts.dancingScript(
-                    textStyle: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 38,
-                        fontWeight: FontWeight.bold))),
+            Text(
+              'Snapix',
+              style: GoogleFonts.dancingScript(
+                textStyle: TextStyle(
+                    color: themesSwitch ? Colors.white : Colors.black,
+                    fontSize: 38,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
           ],
         ),
         actions: [
           IconButton(
-            icon: const Icon(
+            icon: Icon(
               CupertinoIcons.search_circle_fill,
-              color: Colors.white,
+              color: themesSwitch ? Colors.white : Colors.black,
               size: 35,
             ),
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) =>const SearchPage(),
+                builder: (context) => const SearchPage(),
               ),
             ),
           ),
           IconButton(
-            icon: const Icon(
-              CupertinoIcons.bell_circle_fill,
-              color: Colors.white,
-              size: 35,
-            ),
-            onPressed: () {},
-            // need to work on notifications
+            onPressed: () {
+              setState(() {
+                themesSwitch = !themesSwitch;
+              });
+            },
+            icon: themesSwitch
+                ? Icon(CupertinoIcons.sun_max_fill,
+                    color: themesSwitch ? Colors.white : Colors.black)
+                : Icon(CupertinoIcons.moon_fill,
+                    color: themesSwitch ? Colors.white : Colors.black)
           ),
         ],
       ),
@@ -92,11 +104,13 @@ class _HomePageState extends State<HomePage> {
         child: homeScreenItems[pageIdx],
       ),
       bottomNavigationBar: NavigationBarTheme(
-        data: const NavigationBarThemeData(
+        data: NavigationBarThemeData(
+          labelTextStyle: MaterialStateProperty.all(TextStyle(fontSize: 12, color: themesSwitch ? Colors.white : Colors.black),),
           labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+          indicatorColor: Colors.transparent,
         ),
         child: NavigationBar(
-          backgroundColor: Colors.pinkAccent,
+          backgroundColor: Colors.deepPurple,
           selectedIndex: pageIdx,
           height: 60,
           onDestinationSelected: (int idx) {
@@ -105,36 +119,37 @@ class _HomePageState extends State<HomePage> {
             });
           },
           destinations: [
-            const NavigationDestination(
+            NavigationDestination(
               selectedIcon: Icon(
                 CupertinoIcons.home,
-                color: Colors.black,
+                color: themesSwitch ? Colors.white : Colors.black,
                 size: 33,
               ),
               icon: Icon(
                 CupertinoIcons.home,
-                color: Colors.white,
+                color: themesSwitch ? Colors.white : Colors.black,
                 size: 33,
               ),
-              label: 'home',
+              label: 'Home',
+              
             ),
             NavigationDestination(
               selectedIcon: CustomIcon(),
               icon: CustomIcon(),
               label: ' ',
             ),
-            const NavigationDestination(
+            NavigationDestination(
               selectedIcon: Icon(
-                CupertinoIcons.person,
-                color: Colors.black,
+                CupertinoIcons.person_fill,
+                color: themesSwitch ? Colors.white : Colors.black,
                 size: 33,
               ),
               icon: Icon(
-                CupertinoIcons.person,
-                color: Color.fromARGB(255, 41, 21, 21),
+                CupertinoIcons.person_fill,
+                color: themesSwitch ? Colors.white : Colors.black,
                 size: 33,
               ),
-              label: 'Account',
+              label: 'Profile',
             ),
           ],
         ),

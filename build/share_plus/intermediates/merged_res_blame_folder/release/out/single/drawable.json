@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/karan/untitled folder 2/SnaPix/build/share_plus/intermediates/merged_res/release/drawable/notification_bg.xml",
+        "source": "/Users/karan/.gradle/caches/transforms-3/ddea8656ee267a7334f57fa35e5f884b/transformed/core-1.7.0/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Users/karan/untitled folder 2/SnaPix/build/share_plus/intermediates/merged_res/release/drawable/notification_bg_low.xml",
+        "source": "/Users/karan/.gradle/caches/transforms-3/ddea8656ee267a7334f57fa35e5f884b/transformed/core-1.7.0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/Users/karan/untitled folder 2/SnaPix/build/share_plus/intermediates/merged_res/release/drawable/notification_tile_bg.xml",
+        "source": "/Users/karan/.gradle/caches/transforms-3/ddea8656ee267a7334f57fa35e5f884b/transformed/core-1.7.0/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/Users/karan/untitled folder 2/SnaPix/build/share_plus/intermediates/merged_res/release/drawable/notification_icon_background.xml",
+        "source": "/Users/karan/.gradle/caches/transforms-3/ddea8656ee267a7334f57fa35e5f884b/transformed/core-1.7.0/res/drawable/notification_icon_background.xml"
+    }
+]

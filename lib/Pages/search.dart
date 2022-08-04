@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pixapp/Pages/home.dart';
 import 'package:pixapp/Pages/profile.dart';
+import 'package:pixapp/widgets/theme_widgets.dart';
 
+// Search for users and also shows a some extra users
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
 
@@ -18,17 +21,32 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: themesSwitch?Colors.black: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        automaticallyImplyLeading: false,
+        backgroundColor: themeColors(),
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ),
+          ),
+          icon: Icon(
+            CupertinoIcons.back,
+            color: themesSwitch?Colors.white: Colors.black,
+          ),
+        ),
         title: Form(
           child: TextFormField(
             controller: searchController,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               labelText: 'Search for a user...',
-              prefixIcon: Icon(
+              labelStyle:
+                  TextStyle(color: themesSwitch ? Colors.white : Colors.black),
+              suffixIcon: Icon(
                 CupertinoIcons.search,
-              ),  
+                color: themesSwitch ? Colors.white : Colors.black,
+              ),
             ),
             onChanged: (val) {
               setState(() {
@@ -71,6 +89,11 @@ class _SearchPageState extends State<SearchPage> {
                                   child: Text(
                                     (snapshot.data! as dynamic).docs[index]
                                         ['username'],
+                                    style: TextStyle(
+                                      color: themesSwitch
+                                          ? Colors.white
+                                          : Colors.black,
+                                    ),
                                   ),
                                 ),
                                 leading: CircleAvatar(

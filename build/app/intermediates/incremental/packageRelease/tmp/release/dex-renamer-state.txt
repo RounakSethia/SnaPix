@@ -1,0 +1,4 @@
+#Thu Aug 04 00:41:42 PDT 2022
+base.0=/Users/karan/untitled folder 2/SnaPix/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

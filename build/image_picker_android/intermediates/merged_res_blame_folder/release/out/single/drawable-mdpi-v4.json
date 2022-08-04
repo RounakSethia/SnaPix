@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/karan/untitled folder 2/SnaPix/build/image_picker_android/intermediates/merged_res/release/drawable-mdpi-v4/notification_bg_low_pressed.9.png",
+        "source": "/Users/karan/.gradle/caches/transforms-3/2f4b19dfa8b489e3233a5d7fdda270b8/transformed/core-1.8.0/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/karan/untitled folder 2/SnaPix/build/image_picker_android/intermediates/merged_res/release/drawable-mdpi-v4/notification_bg_normal.9.png",
+        "source": "/Users/karan/.gradle/caches/transforms-3/2f4b19dfa8b489e3233a5d7fdda270b8/transformed/core-1.8.0/res/drawable-mdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/karan/untitled folder 2/SnaPix/build/image_picker_android/intermediates/merged_res/release/drawable-mdpi-v4/notification_bg_low_normal.9.png",
+        "source": "/Users/karan/.gradle/caches/transforms-3/2f4b19dfa8b489e3233a5d7fdda270b8/transformed/core-1.8.0/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/karan/untitled folder 2/SnaPix/build/image_picker_android/intermediates/merged_res/release/drawable-mdpi-v4/notify_panel_notification_icon_bg.png",
+        "source": "/Users/karan/.gradle/caches/transforms-3/2f4b19dfa8b489e3233a5d7fdda270b8/transformed/core-1.8.0/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/karan/untitled folder 2/SnaPix/build/image_picker_android/intermediates/merged_res/release/drawable-mdpi-v4/notification_bg_normal_pressed.9.png",
+        "source": "/Users/karan/.gradle/caches/transforms-3/2f4b19dfa8b489e3233a5d7fdda270b8/transformed/core-1.8.0/res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
+    }
+]
