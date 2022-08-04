@@ -5,7 +5,7 @@ A new Flutter project.
 
 ##Features:
   
-  Welcome Page    				            -DONE
+  Welcome Page    				             ✅
   
   Login/Signup					              -DONE
   
