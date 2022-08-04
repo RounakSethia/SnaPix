@@ -4,7 +4,7 @@ App made by Amrit and Rounak under guidence of Bryan Dixon
 A new Flutter project.
 
 ##Features:
---Welcome Page    				            -DONE
+/nWelcome Page    				            -DONE
 --Login/Signup					              -DONE
 --Home Page					                  -DONE
 --Search user					                -DONE
