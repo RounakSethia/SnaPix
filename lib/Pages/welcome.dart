@@ -9,6 +9,7 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
         child: Column(
           children: [
@@ -29,8 +30,14 @@ class WelcomePage extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    Text('Snapix',style: GoogleFonts.playfairDisplay(textStyle: const TextStyle(fontSize: 30))),
-                    const SizedBox(height: 100,),
+                    Text('Snapix',
+                        style: GoogleFonts.playfairDisplay(
+                          textStyle:
+                              TextStyle(fontSize: 30, color: Colors.white),
+                        )),
+                    const SizedBox(
+                      height: 100,
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40),
                       child: Container(
@@ -45,17 +52,21 @@ class WelcomePage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10)),
                         child: InkWell(
                           child: const Center(
-                            child: Text("Login",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
+                            child: Text("Login",
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold)),
                           ),
                           onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => const LoginPage(),
-                                ),
-                              ),
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40),
                       child: Container(
@@ -70,18 +81,22 @@ class WelcomePage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10)),
                         child: InkWell(
                           child: const Center(
-                            child: Text("Register",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                            child: Text(
+                              "Register",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
                           ),
                           onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => const SignupPage(),
-                                ),
-                              ),
+                            MaterialPageRoute(
+                              builder: (context) => const SignupPage(),
+                            ),
+                          ),
                         ),
-                        
                       ),
                     ),
-                    
                   ],
                 ),
               ),

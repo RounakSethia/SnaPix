@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pixapp/FIrebase/auth_methods.dart';
 import 'package:pixapp/Firebase/firestore_methods.dart';
+import 'package:pixapp/Pages/edit_profile.dart';
 import 'package:pixapp/Pages/login.dart';
 import 'package:pixapp/Pages/settings.dart';
 import 'package:pixapp/Pages/snapix.dart';
+import 'package:pixapp/widgets/theme_widgets.dart';
 
 class ProfilePage extends StatefulWidget {
   String userid;
@@ -80,7 +82,8 @@ class _ProfilePageState extends State<ProfilePage> {
       children: [
         Text(
           value.toString(),
-          style: const TextStyle(
+          style: TextStyle(
+            color: themesSwitch?Colors.white: Colors.black,
             fontWeight: FontWeight.w700,
             fontSize: 16,
           ),
@@ -92,7 +95,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+        backgroundColor: themeColors(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -127,7 +130,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       children: [
                         ClipOval(
                           child: Material(
-                            color: Colors.white,
+                            color: themesSwitch?Colors.white: Colors.black,
                             child: InkWell(
                               onTap: () => Navigator.of(context).push(
                                 MaterialPageRoute(
@@ -139,7 +142,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 height: 50,
                                 child: Icon(
                                   CupertinoIcons.back,
-                                  color: Colors.black,
+                                  color: Colors.blue,
                                 ),
                               ),
                             ),
@@ -149,7 +152,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: Material(
                             color: Colors.blue,
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => EditProfilePage(userid: FirebaseAuth.instance.currentUser!.uid,),
+                                ),
+                              ),
                               child: const SizedBox(
                                 width: 80,
                                 height: 80,
@@ -164,11 +171,11 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                         ClipOval(
                           child: Material(
-                            color: Colors.white,
+                            color: themesSwitch?Colors.white: Colors.black,
                             child: InkWell(
                               onTap: () => Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => SettingPage(),
+                                  builder: (context) => SettingPage(userid: FirebaseAuth.instance.currentUser!.uid,),
                                 ),
                               ),
                               child: const SizedBox(
@@ -176,7 +183,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 height: 50,
                                 child: Icon(
                                   CupertinoIcons.settings,
-                                  color: Colors.black,
+                                  color: Colors.blue,
                                 ),
                               ),
                             ),
@@ -195,7 +202,8 @@ class _ProfilePageState extends State<ProfilePage> {
               Text(
                 userData['username'],
                 style: GoogleFonts.playfairDisplay(
-                  textStyle: const TextStyle(
+                  textStyle: TextStyle(
+                    color: themesSwitch?Colors.white: Colors.black,
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
@@ -207,7 +215,8 @@ class _ProfilePageState extends State<ProfilePage> {
               Text(
                 userData['bio'],
                 style: GoogleFonts.playfairDisplay(
-                  textStyle: const TextStyle(
+                  textStyle: TextStyle(
+                    color: themesSwitch?Colors.white: Colors.black,
                     fontSize: 20,
                   ),
                 ),
@@ -220,7 +229,9 @@ class _ProfilePageState extends State<ProfilePage> {
           Padding(
             padding: const EdgeInsets.only(left: 25.0),
             child: Column(
+              
               children: [
+                
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -232,12 +243,12 @@ class _ProfilePageState extends State<ProfilePage> {
                         userinfo(
                           postLength,
                         ),
-                        const Text('Snapix'),
+                        Text('Snapix',style: TextStyle(color: themesSwitch?Colors.white: Colors.black,),),
                         const SizedBox(height: 5),
                       ],
                     ),
                     Container(
-                      color: Colors.white,
+                      color: themesSwitch?Colors.white: Colors.black,
                       width: 1,
                       height: 35,
                       margin: const EdgeInsets.symmetric(
@@ -251,12 +262,12 @@ class _ProfilePageState extends State<ProfilePage> {
                         userinfo(
                           followers,
                         ),
-                        const Text('Followers'),
+                        Text('Followers',style: TextStyle(color: themesSwitch?Colors.white: Colors.black,),),
                         const SizedBox(height: 5),
                       ],
                     ),
                     Container(
-                      color: Colors.white,
+                      color: themesSwitch?Colors.white: Colors.black,
                       width: 1,
                       height: 35,
                       margin: const EdgeInsets.symmetric(
@@ -269,8 +280,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       children: [
                         userinfo(
                           following,
+                          
                         ),
-                        const Text('Following'),
+                        Text('Following',style: TextStyle(color: themesSwitch?Colors.white: Colors.black,),),
                         const SizedBox(height: 5),
                       ],
                     ),
@@ -294,10 +306,10 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           textStyle: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w900),
-                          primary: Colors.white,
+                          primary: themesSwitch?Colors.white: Colors.black,
                           side: BorderSide(
                             width: 1,
-                            color: Colors.white,
+                            color: themesSwitch?Colors.white: Colors.black,
                           ),
                         ),
                         onPressed: () async {
@@ -325,7 +337,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
-                              primary: Colors.white,
+                              primary: Colors.red,
                               onPrimary: Colors.black,
                             ),
                             onPressed: () async {

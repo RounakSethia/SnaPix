@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pixapp/models/user_models.dart';
 import 'package:pixapp/Firebase/firestore_methods.dart';
+import 'package:pixapp/widgets/theme_widgets.dart';
 import 'package:provider/provider.dart';
 
 class AddSnapixPage extends StatefulWidget {
@@ -192,17 +193,19 @@ class _AddSnapixPageState extends State<AddSnapixPage> {
             ),
           )
         : Scaffold(
+          backgroundColor: themeColors(),
             appBar: AppBar(
-              backgroundColor: Colors.black,
+              backgroundColor: themeColors(),
               leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
+                icon: Icon(Icons.arrow_back,color: themesSwitch ? Colors.white : Colors.black,),
                 onPressed: clearImage,
               ),
-              title: const Text(
-                'Post to',
+              title: Text(
+                'Post to',style: TextStyle(color: themesSwitch ? Colors.white : Colors.black,),
               ),
               centerTitle: false,
               actions: <Widget>[
+                
                 TextButton(
                   onPressed: () => postImage(
                     userProvider.getUser.uid,
@@ -236,13 +239,20 @@ class _AddSnapixPageState extends State<AddSnapixPage> {
                       ),
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.3,
+                      width: MediaQuery.of(context).size.width/3,
+                      height: 100,
                       child: TextField(
                         controller: _descriptionController,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.grey,
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue, width: 1.0)
+                          ),
                             hintText: "Write a caption...",
-                            border: InputBorder.none),
-                        maxLines: 8,
+                            hintStyle: TextStyle(color: themesSwitch ? Colors.white : Colors.black,),
+                            ),
+                           maxLines: 10,
                       ),
                     ),
                     SizedBox(

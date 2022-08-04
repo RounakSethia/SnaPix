@@ -13,7 +13,7 @@ class FireStoreMethods {
     try {
       String photoUrl =
           await StorageMethods().uploadImageToStorage('posts', file, true);
-      String postId = const Uuid().v4(); // creates unique id based on time
+      String postId = const Uuid().v4();
       Post post = Post(
         description: description,
         uid: uid,
@@ -36,12 +36,10 @@ class FireStoreMethods {
     String res = "Some error occurred";
     try {
       if (likes.contains(uid)) {
-        // if the likes list contains the user uid, we need to remove it
         _firestore.collection('posts').doc(postId).update({
           'likes': FieldValue.arrayRemove([uid])
         });
       } else {
-        // else we need to add uid to the likes array
         _firestore.collection('posts').doc(postId).update({
           'likes': FieldValue.arrayUnion([uid])
         });
@@ -53,13 +51,12 @@ class FireStoreMethods {
     return res;
   }
 
-  // Post comment
+ 
   Future<String> postComment(String postId, String text, String uid,
       String name, String profilePic) async {
     String res = "Some error occurred";
     try {
       if (text.isNotEmpty) {
-        // if the likes list contains the user uid, we need to remove it
         String commentId = const Uuid().v1();
         _firestore
             .collection('posts')
@@ -78,18 +75,6 @@ class FireStoreMethods {
       } else {
         res = "Please enter text";
       }
-    } catch (err) {
-      res = err.toString();
-    }
-    return res;
-  }
-
-  // Delete Post
-  Future<String> deletePost(String postId) async {
-    String res = "Some error occurred";
-    try {
-      await _firestore.collection('posts').doc(postId).delete();
-      res = 'success';
     } catch (err) {
       res = err.toString();
     }
