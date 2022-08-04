@@ -1,5 +1,5 @@
 Snapix
-App made by Amrit and Rounak under guidence of Bryan Dixen
+App made by Amrit and Rounak under guidence of Bryan Dixon
 
 A new Flutter project.
 
